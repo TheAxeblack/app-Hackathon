@@ -82,18 +82,12 @@
             .style("font-size", "12px")
             .style("display", "none");
 
-        // Ajouter les labels au centre du donut
-        svg.append("text")
-            .attr("text-anchor", "middle")
-            .attr("dy", "-0.5em")
-            .style("font-size", "16px")
-            .text("Objectif");
-        
+        // Ajouter les labels au centre du donut avec le % de CO2 économisé
         svg.append("text")
             .attr("text-anchor", "middle")
             .attr("dy", "1em")
             .style("font-size", "14px")
-            .text(`${objectiveCO2.toFixed(2)} kg`);
+            .text(`${(totalCO2/objectiveCO2 * 100).toFixed(2)} `);
     }).catch(error => {
         console.error("Erreur lors du chargement des données CSV :", error);
     });
