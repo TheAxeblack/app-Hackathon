@@ -1,0 +1,48 @@
+body {
+    background-color: #3C3C3B;
+    color: #FFFFFF;
+    font-family: Arial, sans-serif;
+}
+
+#notifs, #statsP, #statsE, #extra-content {
+    color: #3C3C3B;
+}
+
+#notifs, #statsP, #statsE {
+    background-color: #FFFFFF;
+    border-radius: 5px;
+}
+
+#notifs li::marker {
+    color: #77B82A;
+}
+
+#parking, #velo {
+    border-radius: 5px;
+}
+
+#parking {
+    background-color: #77B82A;
+}
+
+#velo {
+    background-color: #A7D66E;
+}
+
+
+#extra-content {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background: #3C3C3B;
+    overflow-y: auto;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: right 0.5s ease-in-out;
+    z-index: 1050;
+}
+
+#extra-content.active {
+    right: 0;
+}
