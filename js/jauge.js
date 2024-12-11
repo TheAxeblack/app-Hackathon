@@ -1,6 +1,6 @@
 (function(){
     // Charger les données CSV
-    d3.csv("Base_application.csv").then(data => {
+    d3.csv("../Base_application.csv").then(data => {
         // Filtrer et parser les données pour éviter les valeurs incorrectes
         const filteredData = data.filter(d => d.CO2_economise && !isNaN(parseFloat(d.CO2_economise)))
                                  .map(d => parseFloat(d.CO2_economise));
@@ -19,7 +19,7 @@
 
         // Définir les dimensions de la jauge
         const gaugeHeight = 300; // Ajuster la hauteur de la jauge
-        const gaugeWidth = 100;  // Largeur de la jauge
+        const gaugeWidth = 150;  // Largeur de la jauge
         const maxCO2 = Math.max(500, theoreticalCO2); // Ajuster le max pour inclure l'estimation
 
         // Créer un conteneur SVG
@@ -27,7 +27,9 @@
             .append("svg")
             .attr("width", gaugeWidth + 50) // Ajouter de l'espace pour l'échelle
             .attr("height", gaugeHeight + 20) // Ajouter de l'espace pour éviter la coupure
-            .style("margin-top", "10px"); // Ajouter une marge supérieure pour centrer visuellement
+            .style("margin-top", "10px")
+            .style("display", "block")
+            .style("margin","auto");
 
         // Échelle pour la jauge
         const scale = d3.scaleLinear()
@@ -90,7 +92,7 @@
             .attr("x", gaugeWidth / 2)
             .attr("y", scale(objectiveCO2) - 5)
             .attr("text-anchor", "middle")
-            .text(`Limite : ${objectiveCO2.toFixed(2)}`)
+            .text(`${objectiveCO2.toFixed(2)}`)
             .style("fill", "red")
             .style("font-size", "12px");
 
