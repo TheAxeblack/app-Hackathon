@@ -4,67 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Titre</title>
-    <link type="text/css" href="css/style.css" rel="stylesheet">
 
-    <!-- Import Boostraps CSS -->
+    <!-- Import Boostraps CSS-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Import CSS -->
+    <link type="text/css" href="css/style.css" rel="stylesheet">
 </head>
 <body>
-<div class="container">
+<div class="container" id="header">
     <div class="row">
         <div class="col">
             <img src="#" alt="Photo de l'employé">
         </div>
         <div class="col-6">
-            <h1>Titre</h1>
+            <img src="#" alt="Logo de l'appli en SVG">
         </div>
         <div class="col">
-            <button type="button" class="btn btn-primary">Chat</button>
+            <button type="button" class="btn btn-primary" onclick="afficherChat()">Chat</button>
         </div>
     </div>
 </div>
 <hr>
-<div class="container">
+<div class="container" id="notifs">
     <div class="row">
         <div class="col">
-            <h2>Notifications</h2>
-            <img src="#" alt="Image de la notification">
+            <ul>
+                <li>
+                    <p onclick="alert('Click')">
+                        <b>Quelqu'un veut faire du covoiturage avec vous !</b> <em>Venez donner votre réponse</em>
+                    </p>
+                </li>
+                <li>
+                    <p><b>Votre entreprise a débloquer une nouvelle étape ...</b></p>
+                </li>
+            </ul>
+            <!-- Afficher les dernières notifications pas de titre -->
+
         </div>
     </div>
 </div>
-<div class="container">
+<hr>
+<div class="container" id="statsP">
     <div class="row">
-        <div class="col">
-            <h2>Info trajet quotidien</h2>
-        </div>
-        <hr>
-        <div class="row">
-            <div class="col">
-                <h2>Stats perso</h2>
-            </div>
-        </div>
+        <p>Texte percutant</p>
+    </div>
+    <div class="row">
+        <p>Ajouté infographie</p>
     </div>
 </div>
 <hr>
 <div class="container" id="widgets">
     <div class="row row-cols-2">
-        <div class="col">
+        <div class="col" id="parking">
             <h2>Place parking</h2>
-            <p>a mettre représentation des places de parking de l'entreprise</p>
+            <p>Nombre de places</p>
         </div>
-        <div class="col">
-            <h2>Place vélo</h2>
-            <p>a mettre représentation des places de vélo de l'entreprise</p>
-        </div>
-        <div class="col">
-            <h2>Place covoiturage</h2>
-            <p>a mettre représentation des places de covoiturage de l'entreprise</p>
-        </div>
-        <div class="col">
+        <div class="col" id="elec">
             <h2>Place véhicules électriques</h2>
-            <p>a mettre représentation des places de véhicules électrique de l'entreprise</p>
+            <p>nombre de places dédiés aux véhicules électriques</p>
         </div>
+        <div class="col" id="velo">
+            <h2>Place vélo</h2>
+            <p>Nombre de places dédiées aux vélos</p>
+        </div>
+
     </div>
 </div>
 <hr>
@@ -76,6 +80,49 @@
 <div class="container">
     <h2>Accès aux ressources sur la mobilité douce</h2>
 </div>
+<div>
+    <div class="container my-5" id="extra-content">
+        <h2>Discussions</h2>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+            <div class="col">
+                <div class="card h-100">
+                    <img src="#" class="card-img-top" alt="Image 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Titre 1</h5>
+                        <p class="card-text">Un aperçu rapide du contenu ici.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="#" class="card-img-top" alt="Image 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Titre 2</h5>
+                        <p class="card-text">Un autre aperçu rapide du contenu ici.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="#" class="card-img-top" alt="Image 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Titre 3</h5>
+                        <p class="card-text">Encore un aperçu rapide du contenu ici.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="#" class="card-img-top" alt="Image 4">
+                    <div class="card-body">
+                        <h5 class="card-title">Titre 4</h5>
+                        <p class="card-text">Le dernier aperçu rapide du contenu ici.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- Import Popper and Bootstraps JS -->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
@@ -84,5 +131,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
         crossorigin="anonymous"></script>
+<script src="js/script.js"></script>
 </body>
 </html>
