@@ -14,15 +14,15 @@
     <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 <body>
-<div class="container h-100 d-flex flex-column" id="header">
+<div class="container h-100" id="header">
     <div class="row">
-        <div class="col">
+        <div class="col-3">
             <img src="#" alt="Photo de l'employé">
         </div>
         <div class="col-6">
-            <img src="assets/logoBlanc.svg" alt="Logo de l'appli en SVG">
+            <img src="assets/logoBlanc.svg" alt="Logo de l'appli en SVG" class="img-fluid" style="height:50px">
         </div>
-        <div class="col">
+        <div class="col-3">
             <button type="button" class="btn btn-primary" onclick="afficherChat()">Chat</button>
         </div>
     </div>
@@ -55,20 +55,34 @@
 </div>
 <hr>
 <div class="container" id="widgets">
-    <div class="row row-cols-2">
-        <div class="col" id="parking">
+    <div class="row" style="gap: 20px !important;">
+        <div class="col-5" id="parking">
             <h2>Place parking</h2>
             <p>Nombre de places</p>
         </div>
-        <div class="col" id="elec">
+        <div class="col-5" id="elec">
             <h2>Place véhicules électriques</h2>
             <p>nombre de places dédiés aux véhicules électriques</p>
         </div>
-        <div class="col" id="velo">
+        <div class="col-5"></div>
+    </div>
+    <div class="row">
+        <div class="col-5" id="velo">
             <h2>Place vélo</h2>
             <p>Nombre de places dédiées aux vélos</p>
         </div>
+    </div>
 
+</div>
+<hr>
+<div class="container">
+    <div class="row justify-content-around">
+        <div class="col-4">
+            <button class="button-17" role="button">Commencer un trajet</button>
+        </div>
+        <div class="col-4">
+            <button class="button-17" role="button">Chercher un trajet</button>
+        </div>
     </div>
 </div>
 <hr>
@@ -87,11 +101,12 @@
 <hr>
 <div class="container">
     <h2>Accès aux ressources sur la mobilité douce</h2>
+    <a href="#" class=""></a>
 </div>
 <div>
     <div class="container my-5" id="chat-section">
         <h2>Discussions</h2>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-1 g-4">
             <div class="col">
                 <div class="card h-100">
                     <img src="#" class="card-img-top" alt="Image 1">
