@@ -1,4 +1,4 @@
-id,Département,type_de_motorisation,Covoiturage,formation,distance_covoiture,nb_personnes_covoiture,CO2_economise
+id,Departement,type_de_motorisation,Covoiturage,formation,distance_covoiture,nb_personnes_covoiture,CO2_economise
 1,Aménagement du Territoire et Urbanisme,Voiture thermique,Non,False,,,
 2,Transition Écologique et Énergies Renouvelables,Voiture thermique,Non,False,,,
 3,Services Sociaux et Solidarité,Voiture thermique,Non,True,,,
