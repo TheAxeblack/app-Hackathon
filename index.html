@@ -10,6 +10,7 @@
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- Import CSS -->
     <link type="text/css" href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/donut-chart.css">
     <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 <body>
@@ -73,13 +74,22 @@
 <hr>
 <div class="container" id="statsE">
     <h2>Statistiques entreprise</h2>
+    <div class="row align-items-center flex-wrap">
+        <div class="col-12 col-md-auto">
+            <img src="assets/loire.svg" alt="logo du département de la loire" class="img-fluid">
+        </div>
+        <div class="col-12 col-md-auto">
+            <div id="donut" class="d3-container"></div>
+        </div>
+    </div>
+
 </div>
 <hr>
 <div class="container">
     <h2>Accès aux ressources sur la mobilité douce</h2>
 </div>
 <div>
-    <div class="container my-5" id="extra-content">
+    <div class="container my-5" id="chat-section">
         <h2>Discussions</h2>
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
             <div class="col">
@@ -121,6 +131,7 @@
         </div>
     </div>
 </div>
+
 
 <!-- Import Popper and Bootstraps JS -->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
