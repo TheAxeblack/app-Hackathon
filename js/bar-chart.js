@@ -1,3 +1,13 @@
+d3.csv("../Base_application.csv").then(data => {
+  const departments = data.map(d => d.Departement);
+  const filteredData = data.filter(d => d.CO2_economise && !isNaN(parseFloat(d.CO2_economise)))
+      .map(d => parseFloat(d.CO2_economise));
+  const CO2Economise = d3.sum(filteredData);
+
+}).catch(error => {
+  console.error("Erreur lors du chargement des données CSV :", error);
+});
+
 // Données d'exemple
 const data = [
   {label: "RH", value: 23.6, color: "#3C3C3B"},
