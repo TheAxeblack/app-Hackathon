@@ -19,7 +19,7 @@
     <div class="d-flex justify-content-between align-items-center mb-3">
         <img src="#" alt="Photo de l'employé" class="rounded-circle" style="width: 50px; height: 50px;">
         <img src="assets/logoBlanc.svg" alt="Logo Wilo" class="img-fluid" style="height: 50px;">
-        <button type="button" class="btn btn-primary" onclick="afficherChat()">Chat</button>
+        <button type="button" class="button-17" onclick="afficherChat()">Chat</button>
     </div>
 
     <!-- Notifications -->
@@ -85,6 +85,58 @@
         <a href="#" class="btn d-block my-2" id="podcasts">Voir les podcasts</a>
     </div>
 </div>
+<div id="chat-section" class="chat-hidden">
+    <div class="chat-header">
+        <button class="back-button" onclick="afficherChat()">Retour</button>
+        <h1 class="chat-title">
+            <img src="assets/chat.svg" alt="Logo Wilo" class="chat-logo">
+        </h1>
+    </div>
+    <div class="chat-search">
+        <input type="text" class="search-input" placeholder="Recherche"/>
+    </div>
+    <div class="chat-list">
+        <div class="chat-item">
+            <img src="melissa.png" alt="Melissa" class="chat-avatar"/>
+            <div class="chat-info">
+                <h2 class="chat-name">Melissa</h2>
+                <p class="chat-message">
+                    Hello beaucoup de monde vient en vélo demain, il risque de ne pas avoir beaucoup de place dans le
+                    parking à vélo.
+                </p>
+                <span class="chat-time">13:26</span>
+            </div>
+        </div>
+        <div class="chat-item">
+            <img src="leonard.png" alt="Léonard" class="chat-avatar"/>
+            <div class="chat-info">
+                <h2 class="chat-name">Léonard</h2>
+                <p class="chat-message">Salut Hugo, j’espère que tu vas bien. C’est toujours bon pour demain ?</p>
+                <span class="chat-time">11:08</span>
+            </div>
+        </div>
+        <div class="chat-item">
+            <img src="francoise.png" alt="Françoise" class="chat-avatar"/>
+            <div class="chat-info">
+                <h2 class="chat-name">Françoise</h2>
+                <p class="chat-message">Merci pour hier ! On refait pareil mardi prochain ?</p>
+                <span class="chat-time">10:45</span>
+            </div>
+        </div>
+        <div class="chat-item">
+            <img src="elliott.png" alt="Elliott" class="chat-avatar"/>
+            <div class="chat-info">
+                <h2 class="chat-name">Elliott</h2>
+                <p class="chat-message">
+                    Bonjour Hugo, le co-voiturage d’hier m’a vraiment arrangé je ne sais pas comment j’aurais fais
+                    sinon.
+                </p>
+                <span class="chat-time">Hier</span>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <!-- Import Popper and Bootstraps JS -->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"

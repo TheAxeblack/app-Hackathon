@@ -18,6 +18,12 @@ d3.csv("../Base_application.csv").then(data => {
     percentage: total > 0 ? (d.value / total * 100).toFixed(1) : 0
   }));
 
+  // Calcul de l'objectif de réduction des émissions de CO2
+  const moyenneDistanceKm = 20; // Distance moyenne domicile-travail en km
+  const facteurEmission = 0.12; // Facteur d'émission en kg/km
+
+  const theoreticalCO2 = moyenneDistanceKm * facteurEmission;
+  console.log("Theorical " + theoreticalCO2);
   // Dimensions du graphique
   const width = 400;
   const height = 300;
@@ -57,7 +63,7 @@ d3.csv("../Base_application.csv").then(data => {
     .style("font-size", "14px")
     .style("fill", "#3C3C3B");
 
-  // Dessiner les barres
+  // Dessiner les barres (si en dessous de 0, les mettre à 0)
   svg.selectAll(".bar")
     .data(dataWithPercentages)
     .enter()
