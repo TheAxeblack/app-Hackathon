@@ -1,0 +1,25 @@
+.donut-group {
+    text-anchor: middle;
+    font-family: Arial, sans-serif;
+}
+
+.donut-arc {
+    stroke: white;
+    stroke-width: 2px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.donut-arc:hover {
+    transform: scale(1.05);
+}
+
+.donut-label-title {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.donut-label-value {
+    font-size: 14px;
+    fill: gray;
+}
