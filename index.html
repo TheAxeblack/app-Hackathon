@@ -2,14 +2,140 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Titre</title>
-    <link type="text/css" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wilo</title>
 
-    <!-- Import Boostraps CSS -->
+    <!-- Import Boostraps CSS-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Import CSS -->
+    <link type="text/css" href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/donut-chart.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 <body>
+<div class="container py-3">
+    <!-- Header -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <img src="#" alt="Photo de l'employé" class="rounded-circle" style="width: 50px; height: 50px;">
+        <img src="assets/logoBlanc.svg" alt="Logo Wilo" class="img-fluid" style="height: 50px;">
+        <button type="button" class="button-17" onclick="afficherChat()">Chat</button>
+    </div>
+
+    <!-- Notifications -->
+    <div class="bg-white rounded p-3 mb-3" id="notifs">
+        <ul class="list-unstyled">
+            <li class="mb-2">
+                <p><b>Quelqu'un veut faire du covoiturage avec vous !</b> <em>Venez donner votre réponse</em></p>
+            </li>
+            <li>
+                <p><b>Votre entreprise a débloqué une nouvelle étape !</b></p>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Statistiques personnelles -->
+    <div class="bg-white rounded p-3 mb-3">
+        <h3>Ma consommation de CO2</h3>
+        <div id="statsP" class="d-flex justify-content-between align-items-center">
+            <div>
+                <p>Trajets en covoiturage</p>
+                <div id="donut1" class="d3-container"></div>
+            </div>
+            <div>
+                <p>Trajets évités</p>
+                <div id="donut2" class="d3-container"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex flex-wrap gap-3 mb-3" id="widgets">
+        <div class="col text-white rounded p-3" id="parking">
+            <h4>Places de parking</h4>
+            <p>90% disponible</p>
+        </div>
+        <div class="col text-white rounded p-3" id="elec">
+            <h4>Places avec bornes électriques</h4>
+            <p>90% disponible</p>
+        </div>
+        <div class="col text-white rounded p-3" id="velo">
+            <h4>Places de vélos</h4>
+            <p>80% disponible</p>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-around mb-3">
+        <button class="button-17">Commencer un trajet</button>
+        <button class="button-17">Chercher un trajet</button>
+    </div>
+
+    <div class="bg-white rounded p-3 mb-3">
+        <h3>CO2 économisé par mon entreprise</h3>
+        <div class="d-flex justify-content-around align-items-center">
+            <img src="assets/loire.svg" alt="Logo département" class="img-fluid" style="height: 50px;">
+            <div id="bar-chart"></div>
+            <div id="donut"></div>
+        </div>
+    </div>
+
+    <div class="bg-white rounded p-3">
+        <h3>Ressources numériques sur la mobilité</h3>
+        <a href="#" class="btn d-block my-2" id="articles">Voir les articles</a>
+        <a href="#" class="btn d-block my-2" id="videos">Voir les vidéos</a>
+        <a href="#" class="btn d-block my-2" id="podcasts">Voir les podcasts</a>
+    </div>
+</div>
+<div id="chat-section" class="chat-hidden">
+    <div class="chat-header">
+        <button class="back-button" onclick="afficherChat()">Retour</button>
+        <h1 class="chat-title">
+            <img src="assets/chat.svg" alt="Logo Wilo" class="chat-logo">
+        </h1>
+    </div>
+    <div class="chat-search">
+        <input type="text" class="search-input" placeholder="Recherche"/>
+    </div>
+    <div class="chat-list">
+        <div class="chat-item">
+            <img src="melissa.png" alt="Melissa" class="chat-avatar"/>
+            <div class="chat-info">
+                <h2 class="chat-name">Melissa</h2>
+                <p class="chat-message">
+                    Hello beaucoup de monde vient en vélo demain, il risque de ne pas avoir beaucoup de place dans le
+                    parking à vélo.
+                </p>
+                <span class="chat-time">13:26</span>
+            </div>
+        </div>
+        <div class="chat-item">
+            <img src="leonard.png" alt="Léonard" class="chat-avatar"/>
+            <div class="chat-info">
+                <h2 class="chat-name">Léonard</h2>
+                <p class="chat-message">Salut Hugo, j’espère que tu vas bien. C’est toujours bon pour demain ?</p>
+                <span class="chat-time">11:08</span>
+            </div>
+        </div>
+        <div class="chat-item">
+            <img src="francoise.png" alt="Françoise" class="chat-avatar"/>
+            <div class="chat-info">
+                <h2 class="chat-name">Françoise</h2>
+                <p class="chat-message">Merci pour hier ! On refait pareil mardi prochain ?</p>
+                <span class="chat-time">10:45</span>
+            </div>
+        </div>
+        <div class="chat-item">
+            <img src="elliott.png" alt="Elliott" class="chat-avatar"/>
+            <div class="chat-info">
+                <h2 class="chat-name">Elliott</h2>
+                <p class="chat-message">
+                    Bonjour Hugo, le co-voiturage d’hier m’a vraiment arrangé je ne sais pas comment j’aurais fais
+                    sinon.
+                </p>
+                <span class="chat-time">Hier</span>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <!-- Import Popper and Bootstraps JS -->
@@ -19,5 +145,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
         crossorigin="anonymous"></script>
+<script src="js/script.js"></script>
+<script src="js/jauge.js"></script>
+<script src="js/bar-chart.js"></script>
 </body>
 </html>
